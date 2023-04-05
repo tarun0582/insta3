@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { sidenavLink } from 'src/app/core/environment';
-import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

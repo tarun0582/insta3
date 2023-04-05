@@ -1,0 +1,39 @@
+<div class="container vh-100">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-5">
+                <div class="text-center">
+                   
+                </div>
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <p style="color: lightslategray; text-align: center;" class="text-center">
+                   Please enter your login
+                    details</p>
+                <form  [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email" 
+                            name="email"  required/>
+                    </div>
+                    <div class="form-text text-danger" *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid ">email is required in correct format</div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" class="form-control"  formControlName="password" />
+                    </div>
+                    <div class="form-text text-danger" *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid">password is required min 8 digit with title case and one symbol </div>
+                    <br>
+                    <input type="submit" class="btn btn-primary w-100" value="Login" name="">
+                </form>
+            </div>
+            <div class="card-footer text-left">
+                <small type="button" (click)="forgotBtn()">Forgot Password</small>
+            </div>
+                <small style="color: lightslategray;" class="text">
+                  Don't have Acoount ? </small>
+            <div class="card-footer text-right">
+                <small type="button" (click)="signupBtn()" >SignUp</small>
+            </div>
+        </div>
+    </div>
+  </div>
