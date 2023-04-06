@@ -1,3 +1,29 @@
+<div class="container vh-100 ">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-2">
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <p style="color: lightslategray; text-align: center;" class="text-center">
+                    Please enter your post
+                    details</p>
+                <form [formGroup]="postMessage" (ngSubmit)="post()">
+                    <form><input type="file" class="form-control" (change)="onFileSelected($event)" /></form>
+                    <br>
+                    <input type="hidden" formControlName="postImage">
+                    <div class="formGroup">
+                        <input type="text" formControlName="postDescription" class="form-control"
+                            placeholder="u can also skip description">
+                    </div>
+                    <br>
+                    <div class="formGroup">
+                        <input type="submit" class="form-control" value="post" class="btn btn-primary w-100">
+                    </div>
 
-<h1>hello instagram</h1>
-<input type="file" (change)="onFileSelected($event)" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

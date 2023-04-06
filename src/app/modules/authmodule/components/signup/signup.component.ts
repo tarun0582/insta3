@@ -28,17 +28,15 @@ export class SignUpComponent {
  async signupUser() {
     if(this.signupForm.valid){
        await this.authData.signUp(this.signupForm.value.email, this.signupForm.value.password).then((res:any)=>{
+        console.log(res?.user?.multiFactor?.user?.uid)
         if(res.operationType=='signIn'){
-            this.store.addUser(this.signupForm.value)
+            this.store.addUser(this.signupForm.value,res?.user?.multiFactor?.user?.uid)
         }
-       })
-      
+       })  
     }
     else{
         Object.keys(this.signupForm.controls).forEach(key => this.signupForm.controls[key].markAsTouched({ onlySelf: true }))
-
     }
-
   }
   loginBtn() {
     this.routes.navigateByUrl("/main/login")

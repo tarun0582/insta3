@@ -27,7 +27,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authData.SignIn(this.loginForm.value.email, this.loginForm.value.password).then((res: any) => {
         if (res?.user?.emailVerified == true) {
-          this.authData.registerToken(res.user.multiFactor.user.accessToken);
+          this.authData.registerToken(res?.user?.multiFactor?.user?.uid);
           this.routes.navigateByUrl("home/instapost")
       }
       })

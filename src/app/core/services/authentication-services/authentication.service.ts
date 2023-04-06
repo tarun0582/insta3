@@ -67,7 +67,7 @@ export class AuthenticationService {
     removeToken(){
       localStorage.clear();
     }
-    getToken(): string | null {
+    getToken() {
       return localStorage.getItem('token');
     }  
     isLoggedIn() {

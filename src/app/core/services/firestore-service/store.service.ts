@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { User } from '../../interface';
+import { User,post } from '../../interface';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
-
   constructor(private store: AngularFirestore,private storage: AngularFireStorage) { }
-  addUser(data:any): Promise<AngularFirestoreDocument<User>> {
-    const customId = data.email;
-    const user: User = { first1: 'Ada', last: 'Lovelace', born: 1815 };
+  addUser(data:any,id:string): Promise<AngularFirestoreDocument<User>> {
+    const customId = id;
+    const user: User = { name:data.fullName,userName:data.userName,email:data.email,userId:id };
     const userDoc: AngularFirestoreDocument<User> = this.store.doc(`usersData/${customId}`);
     return userDoc.set(user)
       .then(() => {
@@ -27,11 +26,27 @@ export class StoreService {
         throw error;
       });
   }
+  addPost(postData: any, id: any) {
+    const post: post = { imageUrl:postData.postImage,
+      like:0,
+      comments:'',
+      description:postData.postDescription,
+      userId:id    
+    };
+    this.store.collection(`Post/${id}/post`).add(post)
+  .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+  })
+  .catch((error) => {
+      console.error("Error adding document: ", error);
+  });
+  }
+
+  
   uploadImage(image: File): Promise<string> {
     const filePath = `post/${Date.now()}_${image.name}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, image);
-
     return new Promise((resolve, reject) => {
       task
         .snapshotChanges()

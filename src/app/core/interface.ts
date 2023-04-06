@@ -1,5 +1,13 @@
 export interface User {
-    first1: string;
-    last: string;
-    born: number;
+    name: string;
+    userName: string;
+    email: string;
+    userId:string
   }
+export interface post {
+  imageUrl:string
+  like:number
+  comments:any,
+  description:string,
+  userId:string,
+}
