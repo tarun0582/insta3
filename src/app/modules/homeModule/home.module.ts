@@ -9,10 +9,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { environment } from 'src/app/core/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { HomePostComponent } from './components/homepost/homepost.componnet';
 
 
 @NgModule({
-  declarations: [HomeComponent,AboutComponent,InstaPostComponent,HeaderComponent],
+  declarations: [HomeComponent,AboutComponent,InstaPostComponent,HeaderComponent ,HomePostComponent],
   imports: [
   CommonModule,
   ReactiveFormsModule,

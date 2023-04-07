@@ -1,1 +1,46 @@
-<h1>hello home post</h1>
+<!-- <div style="max-height: 600px; overflow-y: scroll; scroll-behavior: smooth;">
+    <div class="d-flex justify-content-center "  *ngFor="let data of allpostData">
+        <div class="card float" style="width: 18rem; ">
+          <img class="card-img-top" src={{data.imageUrl}} alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text" *ngIf="data.description">{{data.description}}</p>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{data.like}}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+</div>
+   -->
+   <div class="d-flex justify-content-center" *ngFor="let data of allpostData">
+      <div class="post"  >
+    <div  class="header">
+      <img class="profile-pic" src={{data.imageUrl}} alt="Profile picture">
+      <h2 class="username">{{data?.email}}</h2>
+    </div>
+    <img class="post-image" src={{data.imageUrl}} alt="Post image">
+    <div class="caption">
+      <div class="username">{{data?.email}}</div>
+      <p class="description">Caption goes here</p>
+      <div class="hashtags">#hashtag1 #hashtag2</div>
+    </div>
+    <div class="likes">1B likes</div>
+    <div class="comments">
+      <div class="comment">
+        <h3 class="username">username:</h3>
+        <p class="comment-text">Comment goes here</p>
+      </div>
+      <div class="comment">
+        <h3 class="username">username:</h3>
+        <p class="comment-text">Comment goes here</p>
+      </div>
+    </div>
+    <div class="add-comment">
+      <input type="text" placeholder="Add a comment...">
+      <button>Post</button>
+    </div>
+  </div>
+  </div>
+ 

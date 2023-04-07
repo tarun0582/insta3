@@ -6,6 +6,7 @@ import { StoreService } from 'src/app/core/services/firestore-service/store.serv
 @Component({
   selector: 'app-insta-post',
   templateUrl: './instapost.component.html',
+  
 })
 export class InstaPostComponent  {
   imageurl:string=''
@@ -15,8 +16,6 @@ export class InstaPostComponent  {
       postImage: [''],
       postDescription:['']
     })
-
-
   }
  async onFileSelected(event: any) {
 const image = event.target.files[0];
@@ -33,8 +32,9 @@ const image = event.target.files[0];
       });
   }
   post(){
-    const t =this.authData.getToken();
-    this.store.addPost(this.postMessage.value,t);
+    const email =this.authData.getToken('email');
+    const userId=this.authData.getToken('userId');
+    this.store.addPost(this.postMessage.value,email,userId);
     console.log(this.postMessage.value)
   }
 }

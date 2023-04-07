@@ -9,7 +9,7 @@
                     Please enter your post
                     details</p>
                 <form [formGroup]="postMessage" (ngSubmit)="post()">
-                    <form><input type="file" class="form-control" (change)="onFileSelected($event)" /></form>
+                    <form><input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" /></form>
                     <br>
                     <input type="hidden" formControlName="postImage">
                     <div class="formGroup">
@@ -20,8 +20,6 @@
                     <div class="formGroup">
                         <input type="submit" class="form-control" value="post" class="btn btn-primary w-100">
                     </div>
-
-
                 </form>
             </div>
         </div>

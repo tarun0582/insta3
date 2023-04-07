@@ -58,20 +58,20 @@ export class AuthenticationService {
   resetPasswordInit(email: string) { 
     return this.afAuth.sendPasswordResetEmail(
       email, 
-      { url: 'http://localhost:4200/main' }); 
+      { url: 'http://localhost:4200/main/login' }); 
     } 
-    registerToken(value:string)
+    registerToken(tokenName:string,value:string)
     {
-        localStorage.setItem("token",value)
+        localStorage.setItem(tokenName,value)
     }
     removeToken(){
       localStorage.clear();
     }
-    getToken() {
-      return localStorage.getItem('token');
+    getToken(tokenName:string) {
+      return localStorage.getItem(tokenName);
     }  
     isLoggedIn() {
-      return this.getToken() !== null;
+      return this.getToken('token') !== null;
     }
     logout() {
       localStorage.removeItem('token');

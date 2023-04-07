@@ -1,0 +1,97 @@
+.post {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    max-width: 600px;
+    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .post .header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .post .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .post .username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post .caption {
+    padding: 10px;
+  }
+  
+  .post .description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  .post .hashtags {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .post .likes {
+    font-size: 14px;
+    color: #555;
+    padding: 10px;
+  }
+  
+  .post .comments {
+    padding: 10px;
+  }
+  
+  .post .comment {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .post .username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+  }
+  
+  .post .comment-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .post .add-comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .post input[type="text"] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .post button {
+    border: none;
+    background-color: #3897f0;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+   
+  

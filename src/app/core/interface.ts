@@ -10,4 +10,5 @@ export interface post {
   comments:any,
   description:string,
   userId:string,
+  email:string
 }

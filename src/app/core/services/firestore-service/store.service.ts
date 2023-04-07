@@ -9,7 +9,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class StoreService {
   constructor(private store: AngularFirestore,private storage: AngularFireStorage) { }
   addUser(data:any,id:string): Promise<AngularFirestoreDocument<User>> {
-    const customId = id;
+    const customId = data.email;
     const user: User = { name:data.fullName,userName:data.userName,email:data.email,userId:id };
     const userDoc: AngularFirestoreDocument<User> = this.store.doc(`usersData/${customId}`);
     return userDoc.set(user)
@@ -26,14 +26,15 @@ export class StoreService {
         throw error;
       });
   }
-  addPost(postData: any, id: any) {
+  addPost(postData: any,email:any, id: any) {
     const post: post = { imageUrl:postData.postImage,
       like:0,
       comments:'',
       description:postData.postDescription,
-      userId:id    
+      userId:id,
+      email:email,    
     };
-    this.store.collection(`Post/${id}/post`).add(post)
+    this.store.collection(`Post`).add(post)
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
   })
@@ -41,8 +42,6 @@ export class StoreService {
       console.error("Error adding document: ", error);
   });
   }
-
-  
   uploadImage(image: File): Promise<string> {
     const filePath = `post/${Date.now()}_${image.name}`;
     const fileRef = this.storage.ref(filePath);
@@ -59,5 +58,8 @@ export class StoreService {
         })
         .catch((error) => reject(error));
     });
+  }
+  addComment(){
+    
   }
 }
