@@ -37,3 +37,4 @@ export const validator = {
     password: /^(?=.{6,})(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/,
     text: /^[a-zA-Z,'.\-\s]*$/,
 }
+export const parentId='Null'
