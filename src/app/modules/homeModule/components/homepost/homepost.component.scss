@@ -37,61 +37,147 @@
     color: #333;
   }
   
-  .post .hashtags {
-    font-size: 14px;
-    color: #555;
-    margin-top: 5px;
-  }
+//   .post .hashtags {
+//     font-size: 14px;
+//     color: #555;
+//     margin-top: 5px;
+//   }
   
-  .post .likes {
-    font-size: 14px;
-    color: #555;
-    padding: 10px;
-  }
+//   .post .likes {
+//     font-size: 14px;
+//     color: #555;
+//     padding: 10px;
+//   }
   
-  .post .comments {
-    padding: 10px;
-  }
+//   .post .comments {
+//     padding: 10px;
+//   }
   
-  .post .comment {
-    display: flex;
-    margin-bottom: 10px;
-  }
+//   .post .comment {
+//     display: flex;
+//     margin-bottom: 10px;
+//   }
   
-  .post .username {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    margin-right: 5px;
-  }
+//   .post .username {
+//     font-size: 16px;
+//     font-weight: bold;
+//     color: #333;
+//     margin-right: 5px;
+//   }
   
-  .post .comment-text {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.5;
-  }
+//   .post .comment-text {
+//     font-size: 14px;
+//     color: #555;
+//     line-height: 1.5;
+//   }
   
-  .post .add-comment {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
+//   .post .add-comment {
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+//   }
   
-  .post input[type="text"] {
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    flex: 1;
-    margin-right: 10px;
-  }
+//   .post input[type="text"] {
+//     border: none;
+//     border-radius: 5px;
+//     padding: 10px;
+//     font-size: 16px;
+//     flex: 1;
+//     margin-right: 10px;
+//   }
   
-  .post button {
-    border: none;
-    background-color: #3897f0;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
+//   .post button {
+//     border: none;
+//     background-color: #3897f0;
+//     color: #fff;
+//     padding: 10px 20px;
+//     border-radius: 5px;
+//   }
    
+//   .comment {
+//     display: grid;
+//     /* Necessary until MS supports the latest version of the spec */
+//     -ms-grid-columns: auto 1fr;
+//     /* period represents an empty area in the grid */
+//     /* auto 1fr means the second column will be greedy and fill all available space */
+//     grid-template:
+//       'avatar-area comment-area'
+//       '. nested-comments-area'
+//       / auto 1fr;
+//   }
   
+//   /* We can apply the highlight as an element which sits across grid areas 👌 */
+//   .highlight {
+//     background: #ccc;
+//     /* Necessary until MS supports the latest version of the spec */
+//     -ms-grid-row: 1;
+//     -ms-grid-column: 1;
+//     -ms-grid-column-span: 2;
+//     /* grid-area: start-row-line / start-column-line / end-row-line / end-column-line; */
+//     /* ^ also it's 1-indexed */
+//     grid-area: 1 / 1 / 2 / 3;
+//   }
+  
+//   .avatar-wrapper {
+//     border: 1px solid black;
+//     padding: 5px;
+//     /* Necessary until MS supports the latest version of the grid spec */
+//     -ms-grid-row: 1;
+//     -ms-grid-column: 1;
+//     grid-area: avatar-area;
+//   }
+  
+//   .avatar {
+//     display: block;
+//     width: 100px;
+//     height: 100px;
+//     background: #666;
+//   }
+  
+//   .content-wrapper {
+//     border: 1px solid black;
+//     padding: 10px;
+//     /* Necessary until MS supports the latest version of the spec */
+//     -ms-grid-row: 1;
+//     -ms-grid-column: 2;
+//     grid-area: comment-area;
+//   }
+  
+//   .nested-comments-wrapper {
+//     border: 1px solid black;
+//     padding: 10px;
+//     /* Necessary until MS supports the latest version of the spec */
+//     -ms-grid-row: 2;
+//     -ms-grid-column: 2;
+//     grid-area: nested-comments-area;
+//   }
+  
+  
+// .comment {
+//   border: 1px solid #ccc;
+//   padding: 10px;
+//   margin-bottom: 10px;
+// }
+
+// .comment-header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .comment-actions {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+
+// .reply-button {
+//   border: none;
+//   background-color: #f1f1f1;
+//   padding: 5px 10px;
+//   border-radius: 5px;
+//   cursor: pointer;
+// }
+
+// .nested-comments {
+//   margin-left: 20px;
+// }

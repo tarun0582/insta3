@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'instagram';
+
+public textArea: string = '';
+public isEmojiPickerVisible: boolean | undefined;
+addEmoji(event:any) {
+  this.textArea = `${this.textArea}${event.emoji.native}`;
+  this.isEmojiPickerVisible = false;
+}
 }

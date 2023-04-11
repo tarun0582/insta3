@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './core/gurds/auth.guard';
 import { AuthModule } from './modules/authmodule/auth.module';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,8 @@ import { AuthModule } from './modules/authmodule/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+   
+    FormsModule,
     AuthModule,
   ],
   providers: [AuthGuard],

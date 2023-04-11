@@ -14,7 +14,8 @@
                     <input type="hidden" formControlName="postImage">
                     <div class="formGroup">
                         <input type="text" formControlName="postDescription" class="form-control"
-                            placeholder="u can also skip description">
+                            placeholder="u can also skip description" [(ngModel)]="message">
+                            <emoji-mart class="emoji-mart" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart>
                     </div>
                     <br>
                     <div class="formGroup">

@@ -10,6 +10,7 @@ import { environment } from 'src/app/core/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HomePostComponent } from './components/homepost/homepost.componnet';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HomePostComponent } from './components/homepost/homepost.componnet';
    HomeRoutingModule,
    AngularFireModule.initializeApp(environment.firebaseConfig),
    AngularFireStorageModule, 
+   PickerModule,
   ],
   exports:[
    
