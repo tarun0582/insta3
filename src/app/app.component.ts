@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RealsService } from './core/services/reals.service';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'instagram';
-
-public textArea: string = '';
-public isEmojiPickerVisible: boolean | undefined;
-addEmoji(event:any) {
-  this.textArea = `${this.textArea}${event.emoji.native}`;
-  this.isEmojiPickerVisible = false;
+  text: any;
+  videoPercentage:string=''
+constructor(private reelServie:RealsService,private decimalPipe: DecimalPipe){
+this.reelServie.getPerc().subscribe((res:any)=>{
+  this.videoPercentage=this.decimalPipe.transform(res, '1.1-2') + '%';
+  if(res==100){
+    this.videoPercentage=' ';
+  }
+})
 }
+  title = 'instagram';
+  hello:string='';
+
 }

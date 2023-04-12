@@ -16,7 +16,7 @@ export class LoginComponent {
   formValidator:any=validator
   userData: any
   loginForm: FormGroup
-  constructor(private fb: FormBuilder, public authData: AuthenticationService, private routes: Router) {
+  constructor(private fb: FormBuilder, public authData: AuthenticationService, private routes: Router ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.formValidator.email)])],
       password: ['', Validators.compose([Validators.required, Validators.pattern(this.formValidator.password)])]
@@ -40,9 +40,11 @@ export class LoginComponent {
     }
   }
   signupBtn() {
+
     this.routes.navigateByUrl("/main/signup")
   }
   forgotBtn() {
     this.routes.navigateByUrl("/main/forgot")
   }
+
 }

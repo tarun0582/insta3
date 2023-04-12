@@ -18,6 +18,8 @@ export class HomePostComponent {
   commentForm: FormGroup;
   parentComment: any = [];
   childComment: any = [];
+
+  isLike:boolean=false;
   grandChildComment: any = [];
   level2Comment: any[] = [];
   postlike: number=0;
@@ -73,25 +75,33 @@ export class HomePostComponent {
     this.commentForm.reset()
   }
   like(postId: any) {
+   
     this.store.Getlike(postId).then((res: any) => {
       console.log(res)
       this.postLike2=res
+    
       this.postlike = res.length
       console.log(this.postlike)
     })
+  
   }
   postLike(postId: any) {
+   
     this.store.checkUser(postId).then((res:any)=>{
       console.log(res)
       if(res.length>=1){
         this.postlike=this.postlike - 1
+     
         this.store.deleteLike(postId);
       }
       else{
         this.store.addLike(postId)
         this.postlike=this.postlike + 1
+      
       }
-    })
+      
+    }
+    )
   }
 
 

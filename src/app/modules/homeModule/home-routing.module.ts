@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { InstaPostComponent } from './components/instapost/instapost.component';
 import { HomePostComponent } from './components/homepost/homepost.componnet';
+import { CreateRealsComponent } from './components/create-reals/createReals.component';
 
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
           { path: 'about', component: AboutComponent },
           {path:'instapost',component:InstaPostComponent},
           {path:"homepost",component:HomePostComponent},
+          {path:"createreals",component:CreateRealsComponent},
           {path: '', redirectTo: '/home/instapost', pathMatch: 'full'},
         ],
       },

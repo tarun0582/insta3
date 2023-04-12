@@ -9,6 +9,13 @@ import { AuthenticationService } from 'src/app/core/services/authentication-serv
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+CreateReals() {
+  this.route.navigateByUrl("/home/createreals")
+}
+Home() {
+  this.route.navigateByUrl("/home/homepost")
+
+}
   navBar:any=sidenavLink
   constructor(private authData:AuthenticationService ,private route:Router){
   }

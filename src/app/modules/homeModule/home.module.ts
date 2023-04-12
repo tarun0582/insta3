@@ -11,10 +11,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HomePostComponent } from './components/homepost/homepost.componnet';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { ViewRealsComponent } from './components/view-reals/viewReals.component';
+import { CreateRealsComponent } from './components/create-reals/createReals.component';
 
 
 @NgModule({
-  declarations: [HomeComponent,AboutComponent,InstaPostComponent,HeaderComponent ,HomePostComponent],
+  declarations: [HomeComponent,AboutComponent,InstaPostComponent,HeaderComponent ,HomePostComponent,ViewRealsComponent,CreateRealsComponent],
   imports: [
   CommonModule,
   ReactiveFormsModule,

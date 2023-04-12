@@ -7,20 +7,25 @@ import { AuthGuard } from './core/gurds/auth.guard';
 import { AuthModule } from './modules/authmodule/auth.module';
 
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './loaderComponent/loader.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { DecimalPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent,
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-   
-    FormsModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    NgxUiLoaderRouterModule,
     AuthModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

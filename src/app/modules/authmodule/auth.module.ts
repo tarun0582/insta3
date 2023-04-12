@@ -14,6 +14,7 @@ import { FirestoreModule } from '@angular/fire/firestore';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
 import { StoreService } from 'src/app/core/services/firestore-service/store.service';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [LoginComponent,ForgotComponent,SignUpComponent,MainComponent],
@@ -24,6 +25,7 @@ import { StoreService } from 'src/app/core/services/firestore-service/store.serv
     AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
     FirestoreModule,
+
     AngularFireModule,
     AngularFirestoreModule
   ],

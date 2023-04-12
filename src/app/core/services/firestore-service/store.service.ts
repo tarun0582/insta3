@@ -37,6 +37,7 @@ export class StoreService {
     const filePath = `post/${Date.now()}_${image.name}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, image);
+  
     return new Promise((resolve, reject) => {
       task
         .snapshotChanges()
@@ -143,7 +144,7 @@ export class StoreService {
       email:this.email
     }
     this.store.collection('like').add(like).then((docRef) => {
-      console.log("Document written with ID: ", docRef.id,"hello");
+      console.log("Document written with ID: ", docRef.id,"hellolike");
     })
       .catch((error) => {
         console.error("Error adding document: ", error);
