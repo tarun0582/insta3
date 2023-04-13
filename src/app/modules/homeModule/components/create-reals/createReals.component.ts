@@ -16,10 +16,10 @@ export class CreateRealsComponent {
     })
   }
   reals(){
-    // const email =this.authData.getToken('email');
-    // const userId=this.authData.getToken('userId');
-    // this.realstore.addreals(this.realsMessage.value,email,userId);
-    console.log(this.realsMessage.value)
+      const email =this.authData.getToken('email');
+      const userId=this.authData.getToken('userId');
+      this.realstore.addreals(this.realsMessage.value,email,userId);
+      console.log(this.realsMessage.value)
     
   }
   async onFileSelected(event: any) {

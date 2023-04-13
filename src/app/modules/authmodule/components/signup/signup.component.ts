@@ -24,7 +24,6 @@ export class SignUpComponent {
       password: ['', Validators.compose([Validators.required, Validators.pattern(this.formValidator.password)])]
     })
   }
-
  async signupUser() {
     if(this.signupForm.valid){
        await this.authData.signUp(this.signupForm.value.email, this.signupForm.value.password).then((res:any)=>{

@@ -1,0 +1,78 @@
+  <div class="d-flex justify-content-center" *ngFor="let reels of allReelsData">
+    <div class="post"  >
+  <div  class="header">
+    <div class="card">
+        <div class="card-body">
+<p>{{reels.email}}</p>
+        </div>
+      </div>
+  </div>
+  <video width="400" controls>
+    <source src={{reels.reelsUrl}} type="video/mp4">
+    Your browser does not support HTML video.
+  </video>
+  <div class="card">
+    <div class="card-body">
+        <div class="caption">
+            <div class="username"></div>
+            <p class="description">description here</p>
+            <div class="hashtags">#hashtag1 #hashtag2</div>
+          </div>
+        <div *ngFor="let username of postLike2">
+          <div *ngIf="username?.postId==reels?.postId
+          ">{{username.email}}</div>
+        </div>
+        <br>
+        <input value="like" class="btn-primary btn" (click)="postLike(reels?.postId)">
+        <br>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+        <div class="comments">
+            <div *ngFor="let comment of parentComment">
+              <div *ngIf="reels.postId==comment.postId">
+                <h2>{{comment.content}}</h2>
+                <input class="btn btn-primary" value="view Reply2" (click)="viewComments(1,comment)">
+                <div class="comments">
+                  <div *ngFor="let childcomment of  childComment">
+                    <div *ngIf="comment.id==childcomment.parentId">
+                      <h2 style="margin-left: 40px;">{{childcomment.content}}</h2>
+                      <input style="margin-left: 40px;" class="btn btn-primary" value="view 3rd "
+                        (click)="viewComments(2, childcomment)">
+                      <div class="comments">
+                        <div *ngFor="let grandChildcomment of  grandChildComment">
+                          <h2 *ngIf="childcomment.id== grandChildcomment.parentId" style="margin-left: 80px;">
+                            {{grandChildcomment.content}}</h2>
+                        </div>
+                      </div>
+                      <form style="margin-left: 40px" [formGroup]=" commentForm" (ngSubmit)="commentOnPost(2, childcomment)">
+                        <input type="text" placeholder="Add a comment..." formControlName="msg">
+                        <button>Post</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <form [formGroup]=" commentForm" (ngSubmit)="commentOnPost(1,comment)">
+                  <input type="text" placeholder="Add a comment..." formControlName="msg">
+                  <button>Post</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div>
+            <br>
+            <input class="btn btn-primary" value="view commentslevel 1" (click)="viewComments(0,reels)">
+          </div>
+          <div>
+            <form [formGroup]=" commentForm" (ngSubmit)="commentOnPost(0,reels)">
+              <input type="text" placeholder="Add a comment..." formControlName="msg">
+              <button>Post</button>
+            </form>
+    </div>
+ 
+  </div>
+  <br>
+</div>
+</div>

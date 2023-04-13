@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { validator } from 'src/app/core/environment';
 import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +20,7 @@ export class LoginComponent {
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.formValidator.email)])],
       password: ['', Validators.compose([Validators.required, Validators.pattern(this.formValidator.password)])]
     })
+    
 
   }
   loginUser() {
@@ -28,6 +28,7 @@ export class LoginComponent {
       this.authData.SignIn(this.loginForm.value.email, this.loginForm.value.password).then((res: any) => {
 
         if (res?.user?.emailVerified == true) {
+          
           this.authData.registerToken('userId',res?.user?.multiFactor?.user?.uid);
           this.authData.registerToken('token',res?.user?.multiFactor?.user?.accessToken);
           this.authData.registerToken('email',this.loginForm.value.email);

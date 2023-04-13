@@ -15,7 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
 import { StoreService } from 'src/app/core/services/firestore-service/store.service';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [LoginComponent,ForgotComponent,SignUpComponent,MainComponent],
   imports: [
@@ -25,13 +25,12 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
     FirestoreModule,
-
+    SweetAlert2Module ,
     AngularFireModule,
     AngularFirestoreModule
   ],
   providers: [AuthenticationService],
   exports:[
-   
   ]
   
 })

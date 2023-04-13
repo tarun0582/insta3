@@ -1,0 +1,24 @@
+
+   <div class="d-flex justify-content-center" *ngFor="let data of allpostData">
+    <div class="post"  >
+  <div  class="header">
+    <img class="profile-pic" src={{data.imageUrl}} alt="Profile picture">
+    <h2 class="username">{{data?.email}}</h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item btn" (click)="unreport(data.postId)">unreport</li>
+    </ul>
+  </div>
+  <img class="post-image" src={{data.imageUrl}} alt="Post image">
+  <div class="caption">
+    <div class="username">{{data?.email}}</div>
+    <p class="description">{{data?.description}}</p>
+    <div class="hashtags">#hashtag1 #hashtag2</div>
+  </div>
+  <br>
+  <br>
+  <div>
+  </div>
+  
+</div>
+</div>
+

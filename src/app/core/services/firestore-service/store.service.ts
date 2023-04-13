@@ -8,7 +8,8 @@ import { AuthenticationService } from '../authentication-services/authentication
   providedIn: 'root'
 })
 export class StoreService {
- 
+
+
  email:string='';
  constructor(private store: AngularFirestore, private storage: AngularFireStorage ,private authData:AuthenticationService) { 
   this.email+=this.authData.getToken('email')
@@ -59,8 +60,9 @@ export class StoreService {
       description: postData.postDescription,
       userId: id,
       email: email,
+      report:false,
     };
-    this.store.collection(`Post`).add(post)
+    this.store.collection(`post`).add(post)
       .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
       })
@@ -99,31 +101,9 @@ export class StoreService {
         });
     });
   }
-  Getlike(postId:any) {
+  Getlike(postId:any,likes:any,) {
     return new Promise((resolve, reject) => {
-      this.store.collection('like', ref => ref.where('postId', '==', postId))
-        .snapshotChanges()
-        .subscribe((data) => {
-          const comments = data.map((comment) => {
-            const id = comment.payload.doc.id;
-            const data = comment.payload.doc.data();
-            return { id, ...data };
-          });
-          resolve(comments);
-        }, (error) => {
-          reject(error);
-          console.log(error)
-        });
-    });
-
-
-  }
-  checkUser(postId: any) {
-
-
-    
-    return new Promise((resolve, reject) => {
-      this.store.collection('like', ref => ref.where('email', '==', this.email).where('postId','==',postId))
+      this.store.collection(likes, ref => ref.where('postId', '==', postId))
         .snapshotChanges()
         .subscribe((data) => {
           const comments = data.map((comment) => {
@@ -138,22 +118,39 @@ export class StoreService {
         });
     });
   }
-  addLike(postId: any) {
+  checkUser(postId: any,likes:any) {
+    return new Promise((resolve, reject) => {
+      this.store.collection(likes, ref => ref.where('email', '==', this.email).where('postId','==',postId))
+        .snapshotChanges()
+        .subscribe((data) => {
+          const comments = data.map((comment) => {
+            const id = comment.payload.doc.id;
+            const data = comment.payload.doc.data();
+            return { id, ...data };
+          });
+          resolve(comments);
+        }, (error) => {
+          reject(error);
+          console.log(error)
+        });
+    });
+  }
+  addLike(postId: any,likes:any) {
     const like = {
       postId:postId,
       email:this.email
     }
-    this.store.collection('like').add(like).then((docRef) => {
+    this.store.collection(likes).add(like).then((docRef) => {
       console.log("Document written with ID: ", docRef.id,"hellolike");
     })
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
   }
-  deleteLike(postId: any) {
+  deleteLike(postId: any,likes:any) {
     const email = this.authData.getToken('email')
     return new Promise((resolve, reject) => {
-      this.store.collection('like', ref => ref.where('email', '==', email).where('postId', '==', postId))
+      this.store.collection(likes, ref => ref.where('email', '==', email).where('postId', '==', postId))
         .snapshotChanges()
         .subscribe((data) => {
           data.forEach((doc: any) => {
@@ -165,6 +162,29 @@ export class StoreService {
           console.log(error);
         });
     });
+  }
+  reportPost(id:any,value:boolean ) {
+     this.store.collection("post").doc(id).update({
+      report:value,
+    })
+  }
+  getPost(report:boolean) {
+    return new Promise((resolve, reject) => {
+      this.store.collection('post', ref => ref.where('report', '==', report))
+        .snapshotChanges()
+        .subscribe((data) => {
+          const comments = data.map((comment) => {
+            const postId = comment.payload.doc.id;
+            const data = comment.payload.doc.data();
+            return { postId, ...data };
+          });
+          resolve(comments);
+        }, (error) => {
+          reject(error);
+          console.log(error)
+        });
+    });
+    
   }
 }
 

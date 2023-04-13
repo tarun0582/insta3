@@ -9,6 +9,9 @@ import { AuthenticationService } from 'src/app/core/services/authentication-serv
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+ViewReels() {
+  this.route.navigateByUrl("/home/viewreels")
+}
 CreateReals() {
   this.route.navigateByUrl("/home/createreals")
 }

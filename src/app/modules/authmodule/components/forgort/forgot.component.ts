@@ -2,12 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
-
-
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
-
 })
 export class ForgotComponent {
   forgotForm:FormGroup
@@ -19,9 +16,9 @@ export class ForgotComponent {
 forgotUser() {
   if (this.forgotForm.valid) {
     console.log(this.forgotForm.value)
-    this.authData.resetPasswordInit(this.forgotForm.value.email).then((res: any) => {
-        console.log(res, "signupreponse")
-    })
+    this.authData.resetPasswordInit(this.forgotForm.value.email)
+    alert("plz check your email")
+    this.routes.navigate(['/main/login']);
 }
 else {
     Object.keys(this.forgotForm.controls).forEach(key => this.forgotForm.controls[key].markAsTouched({ onlySelf: true }))

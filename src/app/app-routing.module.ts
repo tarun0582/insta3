@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/gurds/auth.guard';
-import { LoaderComponent } from './loaderComponent/loader.component';
-
 const routes: Routes = [
-  {path: '', redirectTo: '/main', pathMatch: 'full' },
-
+  {path: '', redirectTo: '/main/login', pathMatch: 'full' },
   {
     path:'main',
- 
     loadChildren :() =>
     import('./modules/authmodule/auth.module').then((res)=>res.AuthModule),
   },
@@ -19,9 +15,7 @@ const routes: Routes = [
   loadChildren:()=>
   import('./modules/homeModule/home.module').then((res)=>res.HomeModule)
 },
-
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

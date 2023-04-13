@@ -4,16 +4,21 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { StoreService } from 'src/app/core/services/firestore-service/store.service';
 import { parentId } from 'src/app/core/environment';
+import { AuthenticationService } from 'src/app/core/services/authentication-services/authentication.service';
 @Component({
   selector: 'app-home-post',
   templateUrl: './homepost.component.html',
   styleUrls: ['./homepost.component.scss']
 })
 export class HomePostComponent {
+report(id: string) {
+  console.log(id)
+  this.store.reportPost(id,true)
+}
 
   parentId: string = parentId
   title = 'instagram';
-  allPost = new Subject<any>();
+
   allpostData: any[] = [];
   commentForm: FormGroup;
   parentComment: any = [];
@@ -24,23 +29,16 @@ export class HomePostComponent {
   level2Comment: any[] = [];
   postlike: number=0;
   postLike2: any=[];
-  constructor(private db: AngularFirestore, private fb: FormBuilder, private store: StoreService) {
+  constructor(private db: AngularFirestore, private fb: FormBuilder, private store: StoreService,private authData:AuthenticationService) {
     this.getItems();
-    console.log(this.allpostData)
-    this.allPost.subscribe((res: any) => {
-      const doc = res.payload.doc;
-      this.allpostData.push({ postId: doc.id, ...doc.data() });
-    });
     this.commentForm = this.fb.group({
       msg: ['']
     })
   }
   async getItems() {
-    await this.db.collection('Post').snapshotChanges().subscribe((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        this.allPost.next(doc);
-      });
-    });
+   this.store.getPost(false).then((res:any)=>{
+   this.allpostData=res
+   })
   }
   viewComments(id: any, postData: any) {
     if (id == 0) {
@@ -74,9 +72,8 @@ export class HomePostComponent {
     }
     this.commentForm.reset()
   }
-  like(postId: any) {
-   
-    this.store.Getlike(postId).then((res: any) => {
+  like(postId: any) { 
+    this.store.Getlike(postId,'postLike').then((res: any) => {
       console.log(res)
       this.postLike2=res
     
@@ -87,15 +84,14 @@ export class HomePostComponent {
   }
   postLike(postId: any) {
    
-    this.store.checkUser(postId).then((res:any)=>{
+    this.store.checkUser(postId,'postLike').then((res:any)=>{
       console.log(res)
       if(res.length>=1){
         this.postlike=this.postlike - 1
-     
-        this.store.deleteLike(postId);
+        this.store.deleteLike(postId,'postLike');
       }
       else{
-        this.store.addLike(postId)
+        this.store.addLike(postId,'postLike')
         this.postlike=this.postlike + 1
       
       }

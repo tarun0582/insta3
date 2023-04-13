@@ -10,5 +10,6 @@ export interface post {
   comments:any,
   description:string,
   userId:string,
-  email:string
+  email:string,
+  report:boolean
 }

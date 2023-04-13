@@ -56,9 +56,11 @@ export class AuthenticationService {
       });
   }
   resetPasswordInit(email: string) { 
+ 
     return this.afAuth.sendPasswordResetEmail(
       email, 
-      { url: 'http://localhost:4200/main/login' }); 
+      { url: 'http://localhost:4200/main/login' })
+     
     } 
     registerToken(tokenName:string,value:string)
     {

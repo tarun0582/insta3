@@ -1,0 +1,38 @@
+.post {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    max-width: 600px;
+    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .post .header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .post .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .post .username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post .caption {
+    padding: 10px;
+  }
+  
+  .post .description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }

@@ -6,7 +6,6 @@ import { SignUpComponent } from './components/signup/signup.component';
 import { ForgotComponent } from './components/forgort/forgot.component';
 
 const routes: Routes = [
-
     {
         path: '',
         component: MainComponent,
@@ -14,6 +13,7 @@ const routes: Routes = [
           {path: 'login', component:LoginComponent },
           {path: 'signup', component:SignUpComponent},
           {path: 'forgot',component:ForgotComponent},
+          {path: 'main',component:ForgotComponent},
           {path: '', redirectTo: '/main/login', pathMatch: 'full' },
         ],
       },
