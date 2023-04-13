@@ -21,6 +21,7 @@
     "@angular/router": "^15.2.0",
     "@ctrl/ngx-emoji-mart": "^7.1.0",
     "@sweetalert2/ngx-sweetalert2": "^12.1.0",
+    "angular-cli-github-pages": "^0.2.0",
     "firebase": "^9.19.1",
     "firebase-admin": "^11.5.0",
     "ionic-emoji-picker-angular": "^1.2.0",
